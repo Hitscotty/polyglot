@@ -7,7 +7,12 @@ import System.IO (readFile)
 import Data.Time (getCurrentTime)
 import Data.Aeson (FromJSON, ToJSON)
 import GHC.Generics
-import Web.Scotty
+import qualified Web.Scotty as S
+import qualified Text.Blaze.Html5 as H
+import qualified Text.Blaze.Html5.Attributes as A
+import Text.Blaze.Html.Renderer.Text
+import Network.Wai.Middleware.RequestLogger
+import qualified Views.Index
 import Data.Monoid ((<>))
 
 data User = User { userId :: Int, userName :: String } deriving (Show, Generic)
@@ -25,27 +30,34 @@ allUsers :: [User]
 allUsers = [bob, jenny]
 
 -- | middleware section
+blaze :: H.Html -> S.ActionM ()
+blaze = S.html . renderHtml
+
 matchesId :: Int -> User -> Bool
 matchesId id user = userId user == id
 
 -- | routing section 
-routes :: ScottyM ()
-routes = do
-  get "/members/:name" $ do
-    name <- param "name"
-    text ("welcome " <> name <> " to the members view!")
+routes :: S.ScottyM ()
+routes = do  
+  S.get "/" $ do
+    blaze Views.Index.navbar
+   
+  S.get "/members" $ do
+    S.html . renderHtml $ do
+      H.h1  " Members "
 
-  get "/users" $ do
-    json allUsers
+  S.get "/members/:name" $ do
+    name <- S.param "name"
+    S.text ("welcome " <> name <> " to the members view!")
 
-  get "/users/:id" $ do
-    id <- param "id"
-    json (filter (matchesId id) allUsers)
+  S.get "/users" $ do
+    S.json allUsers
 
-  get "/" $ do
-    html "<h1> Polyglot </h1>"
+  S.get "/users/:id" $ do
+    id <- S.param "id"
+    S.json (filter (matchesId id) allUsers)
 
 main :: IO ()
 main = do
   putStrLn "starting server..."
-  scotty 3000 routes
+  S.scotty 3000 routes
