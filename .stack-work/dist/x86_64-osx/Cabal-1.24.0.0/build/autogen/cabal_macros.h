@@ -28,12 +28,26 @@
   (major1) == 0 && (major2) <  8 || \
   (major1) == 0 && (major2) == 8 && (minor) <= 1)
 
+/* package blaze-markup-0.7.1.1 */
+#define VERSION_blaze_markup "0.7.1.1"
+#define MIN_VERSION_blaze_markup(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  7 || \
+  (major1) == 0 && (major2) == 7 && (minor) <= 1)
+
 /* package scotty-0.11.0 */
 #define VERSION_scotty "0.11.0"
 #define MIN_VERSION_scotty(major1,major2,minor) (\
   (major1) <  0 || \
   (major1) == 0 && (major2) <  11 || \
   (major1) == 0 && (major2) == 11 && (minor) <= 0)
+
+/* package text-1.2.2.1 */
+#define VERSION_text "1.2.2.1"
+#define MIN_VERSION_text(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  2 || \
+  (major1) == 1 && (major2) == 2 && (minor) <= 2)
 
 /* package time-1.6.0.1 */
 #define VERSION_time "1.6.0.1"
@@ -55,6 +69,13 @@
   (major1) <  3 || \
   (major1) == 3 && (major2) <  0 || \
   (major1) == 3 && (major2) == 0 && (minor) <= 19)
+
+/* package wai-middleware-static-0.8.1 */
+#define VERSION_wai_middleware_static "0.8.1"
+#define MIN_VERSION_wai_middleware_static(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  8 || \
+  (major1) == 0 && (major2) == 8 && (minor) <= 1)
 
 /* tool gcc-4.2.1 */
 #define TOOL_VERSION_gcc "4.2.1"

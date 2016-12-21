@@ -22,5 +22,8 @@ executable polyglot
                        aeson,
                        scotty,
                        blaze-html,
+                       blaze-markup,
                        wai,
-                       wai-extra
+                       wai-extra,
+                       wai-middleware-static,
+                       text
