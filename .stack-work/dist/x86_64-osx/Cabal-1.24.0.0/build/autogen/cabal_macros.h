@@ -21,6 +21,13 @@
   (major1) == 4 && (major2) <  9 || \
   (major1) == 4 && (major2) == 9 && (minor) <= 0)
 
+/* package blaze-html-0.8.1.3 */
+#define VERSION_blaze_html "0.8.1.3"
+#define MIN_VERSION_blaze_html(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  8 || \
+  (major1) == 0 && (major2) == 8 && (minor) <= 1)
+
 /* package scotty-0.11.0 */
 #define VERSION_scotty "0.11.0"
 #define MIN_VERSION_scotty(major1,major2,minor) (\
@@ -34,6 +41,20 @@
   (major1) <  1 || \
   (major1) == 1 && (major2) <  6 || \
   (major1) == 1 && (major2) == 6 && (minor) <= 0)
+
+/* package wai-3.2.1.1 */
+#define VERSION_wai "3.2.1.1"
+#define MIN_VERSION_wai(major1,major2,minor) (\
+  (major1) <  3 || \
+  (major1) == 3 && (major2) <  2 || \
+  (major1) == 3 && (major2) == 2 && (minor) <= 1)
+
+/* package wai-extra-3.0.19 */
+#define VERSION_wai_extra "3.0.19"
+#define MIN_VERSION_wai_extra(major1,major2,minor) (\
+  (major1) <  3 || \
+  (major1) == 3 && (major2) <  0 || \
+  (major1) == 3 && (major2) == 0 && (minor) <= 19)
 
 /* tool gcc-4.2.1 */
 #define TOOL_VERSION_gcc "4.2.1"

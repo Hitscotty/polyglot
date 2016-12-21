@@ -20,4 +20,7 @@ executable polyglot
   build-depends:       base >= 4.7 && < 5,
                        time,
                        aeson,
-                       scotty
+                       scotty,
+                       blaze-html,
+                       wai,
+                       wai-extra
