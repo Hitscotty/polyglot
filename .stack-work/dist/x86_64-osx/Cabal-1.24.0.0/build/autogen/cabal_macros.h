@@ -35,6 +35,13 @@
   (major1) == 0 && (major2) <  7 || \
   (major1) == 0 && (major2) == 7 && (minor) <= 1)
 
+/* package mongoDB-2.1.1.1 */
+#define VERSION_mongoDB "2.1.1.1"
+#define MIN_VERSION_mongoDB(major1,major2,minor) (\
+  (major1) <  2 || \
+  (major1) == 2 && (major2) <  1 || \
+  (major1) == 2 && (major2) == 1 && (minor) <= 1)
+
 /* package scotty-0.11.0 */
 #define VERSION_scotty "0.11.0"
 #define MIN_VERSION_scotty(major1,major2,minor) (\

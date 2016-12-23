@@ -26,4 +26,5 @@ executable polyglot
                        wai,
                        wai-extra,
                        wai-middleware-static,
-                       text
+                       text,
+                       mongoDB

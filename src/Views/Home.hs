@@ -6,19 +6,32 @@ import           Data.Monoid                 (mempty)
 import           Data.Text.Lazy              (toStrict)
 import           Prelude                     hiding (div, head, id)
 import           Text.Blaze.Html             (Html, toHtml)
-import           Text.Blaze.Html5            (blockquote, em, h3, h4,footer, pre, code, strong, hr, Html, nav, a, body, button,
+import           Text.Blaze.Html5            (blockquote, em, h3, h4,footer, 
+                                             pre, code, strong, hr, Html, nav, 
+                                             a, body, button, form, label, b,
                                               dataAttribute, div, docTypeHtml,
                                               form, h1, h2, head, input, li,
                                               link, meta, p, script, style,
-                                              title, ul, ol,  (!))
-import           Text.Blaze.Html5.Attributes (lang, charset, class_, content, href,
+                                              title, ul, ol, i, small, (!))
+import           Text.Blaze.Html5.Attributes (lang, charset, class_, content, 
+                                            value,
+                                             href,for,acceptCharset, action,
                                               httpEquiv, id, media, name,
-                                              placeholder, rel, src, type_)
+                                              placeholder, rel, src, type_, required,
+                                             method)
 import           Views.Utils                 (blaze, pet)
 import           Web.Scotty                  (ActionM)
 
 homeView :: ActionM ()
-homeView = blaze $ navbar
+homeView = blaze $ do 
+                 navbar
+                 articles
+
+registerView :: ActionM ()
+registerView = blaze $ do 
+                     navbar
+                     register
+
 
 navbar :: Html
 navbar =  docTypeHtml ! lang "en" $ do
@@ -44,6 +57,9 @@ navbar =  docTypeHtml ! lang "en" $ do
         --       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         --       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         --     <![endif]
+        
+articles :: Html
+articles =
     body $ do
         div ! class_ "blog-masthead" $ div ! class_ "container" $ nav ! class_ "blog-nav" $ do
             a ! class_ "blog-nav-item active" ! href "#" $ "Home"
@@ -51,6 +67,7 @@ navbar =  docTypeHtml ! lang "en" $ do
             a ! class_ "blog-nav-item" ! href "#" $ "Press"
             a ! class_ "blog-nav-item" ! href "#" $ "New hires"
             a ! class_ "blog-nav-item" ! href "#" $ "About"
+            login
         div ! class_ "container" $ do
             div ! class_ "blog-header" $ do
                 h1 ! class_ "blog-title" $ "The Bootstrap Blog"
@@ -179,3 +196,52 @@ navbar =  docTypeHtml ! lang "en" $ do
         script ! src "https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" $ mempty
         script ! src "http://getbootstrap.com/dist/js/bootstrap.min.js" $ mempty
         --  IE10 viewport hack for Surface/desktop Windows 8 bug 
+
+
+login :: Html
+login =  li ! class_ "blog-nav-item dropdown" $ do
+            a ! href "#" ! class_ "dropdown-toggle" ! dataAttribute "toggle" "dropdown" $ do
+                b "Login" 
+            --span ! class_ "caret" $ mempty
+            ul ! id "login-dp" ! class_ "dropdown-menu" $ li $ div ! class_ "row" $ do
+                div ! class_ "col-md-12" $ do
+                    "Login via"
+                    div ! class_ "social-buttons" $ do
+                        a ! href "#" ! class_ "btn btn-fb" $ do
+                            i ! class_ "fa fa-facebook" $ mempty
+                            "Facebook"
+                        a ! href "#" ! class_ "btn btn-tw" $ do
+                            i ! class_ "fa fa-twitter" $ mempty
+                            "Twitter"
+                    "or"
+                    form ! class_ "form" ! method "post" ! action "login" ! acceptCharset "UTF-8" ! id "login-nav" $ do
+                        div ! class_ "form-group" $ do
+                            label ! class_ "sr-only" ! for "exampleInputEmail2" $ "Email address"
+                            input ! type_ "email" ! class_ "form-control" ! id "exampleInputEmail2" ! placeholder "Email address" ! required ""
+                        div ! class_ "form-group" $ do
+                            label ! class_ "sr-only" ! for "exampleInputPassword2" $ "Password"
+                            input ! type_ "password" ! class_ "form-control" ! id "exampleInputPassword2" ! placeholder "Password" ! required ""
+                            div ! class_ "help-block text-right" $ a ! href "" $ "Forget the password ?"
+                        div ! class_ "form-group" $ button ! type_ "submit" ! class_ "btn btn-primary btn-block" $ "Sign in"
+                        div ! class_ "checkbox" $ label $ do
+                            input ! type_ "checkbox"
+                            "keep me logged-in"
+                div ! class_ "bottom text-center" $ do
+                    "New here ?"
+                    a ! href "/register" $ b "Join Us"
+
+register :: Html
+register = div ! class_ "container" $ div ! class_ "row centered-form" $ div ! class_ "col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4" $ div ! class_ "panel panel-default" $ do
+    div ! class_ "panel-heading" $ h3 ! class_ "panel-title" $ do
+        "Polyglot"
+        small "learning everyday"
+    div ! class_ "panel-body" $ form $ do
+        div ! class_ "row" $ do
+            div ! class_ "col-xs-6 col-sm-6 col-md-6" $ div ! class_ "form-group" $ input ! type_ "text" ! name "first_name" ! id "first_name" ! class_ "form-control input-sm" ! placeholder "First Name"
+            div ! class_ "col-xs-6 col-sm-6 col-md-6" $ div ! class_ "form-group" $ input ! type_ "text" ! name "last_name" ! id "last_name" ! class_ "form-control input-sm" ! placeholder "Last Name"
+        div ! class_ "form-group" $ input ! type_ "email" ! name "email" ! id "email" ! class_ "form-control input-sm" ! placeholder "Email Address"
+        div ! class_ "row" $ do
+            div ! class_ "col-xs-6 col-sm-6 col-md-6" $ div ! class_ "form-group" $ input ! type_ "password" ! name "password" ! id "password" ! class_ "form-control input-sm" ! placeholder "Password"
+            div ! class_ "col-xs-6 col-sm-6 col-md-6" $ div ! class_ "form-group" $ input ! type_ "password" ! name "password_confirmation" ! id "password_confirmation" ! class_ "form-control input-sm" ! placeholder "Confirm Password"
+        input ! type_ "submit" ! value "Register" ! class_ "btn btn-info btn-block"
+

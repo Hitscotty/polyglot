@@ -1,14 +1,17 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE ScopedTypeVariables #-}
 
 module Controllers.Home (home
                         ,login
                         ) where 
 
-import Views.Home (homeView)
-import Web.Scotty (ScottyM, get, html)
+import Views.Home (homeView, registerView)
+import Web.Scotty
 
 home :: ScottyM ()
 home = get "/" homeView
 
 login :: ScottyM ()
-login = get "/login" $ html "login"
+login = do 
+   get "/register" registerView
+
