@@ -28,4 +28,5 @@ executable polyglot
                        wai-middleware-static,
                        text,
                        mongoDB,
-                       mtl
+                       mtl,
+                       clay

@@ -35,6 +35,13 @@
   (major1) == 0 && (major2) <  7 || \
   (major1) == 0 && (major2) == 7 && (minor) <= 1)
 
+/* package clay-0.11 */
+#define VERSION_clay "0.11"
+#define MIN_VERSION_clay(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  11 || \
+  (major1) == 0 && (major2) == 11 && (minor) <= 0)
+
 /* package mongoDB-2.1.1.1 */
 #define VERSION_mongoDB "2.1.1.1"
 #define MIN_VERSION_mongoDB(major1,major2,minor) (\

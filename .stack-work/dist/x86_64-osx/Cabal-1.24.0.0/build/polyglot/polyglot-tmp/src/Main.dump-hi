@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2016-12-24 06:36:01.729178 UTC
+2016-12-24 20:59:20.439037 UTC
 
 interface main@main:Main 8001
-  interface hash: 4b58a184446bf84266a1616e9fb72b0f
-  ABI hash: 80571199f998b6f92d0deefeafdbd127
-  export-list hash: 50c7592eeaa14e7baf2c3bedec53534d
+  interface hash: 72b2d7955415bf30c6f09dce10b4a54e
+  ABI hash: 10f14fd3e383368f45f315cbfc286490
+  export-list hash: 54ff8ef02411539488d36b69a7dafe16
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 4c0014d65d1b651aef640036be32543d
   sig of: Nothing
@@ -13,23 +13,36 @@ interface main@main:Main 8001
   where
 exports:
   Main.main
-module dependencies: Controllers.Home Views.Home Views.Utils
-package dependencies: aeson-0.11.2.1@aeson-0.11.2.1-ByXhYhAOjwT2lX0EEzDlEU
+module dependencies: Controllers.Home Models.Barnes Views.Home
+                     Views.Utils
+package dependencies: MonadRandom-0.4.2.3@MonadRandom-0.4.2.3-8TfCm6PGvGYB7omozORhov
+                      aeson-0.11.2.1@aeson-0.11.2.1-ByXhYhAOjwT2lX0EEzDlEU
                       ansi-terminal-0.6.2.3@ansi-terminal-0.6.2.3-448ipfN5j28Ha0AgPiJmdI
                       appar-0.1.4@appar-0.1.4-1in4Ewd8JBkAYDZSWXLSe0
                       array-0.5.1.1@array-0.5.1.1
                       async-2.1.1@async-2.1.1-xFiBzw9xoB8HPZAuxUY2o
                       attoparsec-0.13.1.0@attoparsec-0.13.1.0-2AyzLuPV4T95RcYDl03Ghe
                       auto-update-0.1.4@auto-update-0.1.4-GAesfFmqoZzBz6e09kRyzb
-                      base-4.9.0.0 binary-0.8.3.0@binary-0.8.3.0
+                      base-4.9.0.0
+                      base16-bytestring-0.1.1.6@base16-bytestring-0.1.1.6-5dPoF8dzhwzBaEB2MvnmIS
+                      base64-bytestring-1.0.0.1@base64-bytestring-1.0.0.1-In9M41tLtcS9QYt3QpGpNY
+                      binary-0.8.3.0@binary-0.8.3.0
                       blaze-builder-0.4.0.2@blaze-builder-0.4.0.2-6Lw6V3wDhf3KDMasjNOEeG
                       blaze-html-0.8.1.3@blaze-html-0.8.1.3-7Mt9x337mv4IO4jcUMt8gl
                       blaze-markup-0.7.1.1@blaze-markup-0.7.1.1-GGM5nP9jZuZ9fymRS32rvZ
+                      bson-0.3.2.3@bson-0.3.2.3-8sf5oNedrYP7XAkMjn5uB7
+                      byteable-0.1.1@byteable-0.1.1-15aIBCArSOBEnGxArzrDTM
                       byteorder-1.0.4@byteorder-1.0.4-BbL4c17EpZrL9PcZm0xys9
                       bytestring-0.10.8.1@bytestring-0.10.8.1
                       case-insensitive-1.2.0.7@case-insensitive-1.2.0.7-FDS9muZSKvyFFsDxjwuYX9
+                      cipher-aes-0.2.11@cipher-aes-0.2.11-6IDqXzfBW6B3WK2bKJbiBh
                       containers-0.5.7.1@containers-0.5.7.1
+                      cprng-aes-0.6.1@cprng-aes-0.6.1-7CikNMOFjSh7mrDX8SjAO5
+                      crypto-cipher-types-0.0.9@crypto-cipher-types-0.0.9-Iwzx9devSK6HQoOjujg46u
+                      crypto-random-0.0.9@crypto-random-0.0.9-II6ILTdMAVq9O4XLKsp5SS
+                      cryptohash-0.11.9@cryptohash-0.11.9-9KNu0EEbreBFrmNJAeHgYz
                       cryptonite-0.19@cryptonite-0.19-G9PYO4oOEqhDTta2u9rAaU
+                      data-binary-ieee754-0.4.4@data-binary-ieee754-0.4.4-F1HjhwdV1xx5grS0eMjeg2
                       data-default-class-0.1.2.0@data-default-class-0.1.2.0-FYQpjIylblBDctdkHAFeXA
                       deepseq-1.4.2.0@deepseq-1.4.2.0 directory-1.2.6.2@directory-1.2.6.2
                       dlist-0.8.0.2@dlist-0.8.0.2-GWAMmbX9rLg3tqrbOizHGv
@@ -40,6 +53,7 @@ package dependencies: aeson-0.11.2.1@aeson-0.11.2.1-ByXhYhAOjwT2lX0EEzDlEU
                       filepath-1.4.1.0@filepath-1.4.1.0
                       ghc-boot-th-8.0.1@ghc-boot-th-8.0.1 ghc-prim-0.5.0.0
                       hashable-1.2.4.0@hashable-1.2.4.0-Ctl752zbguF6QanxurLOm2
+                      hashtables-1.2.1.0@hashtables-1.2.1.0-1ucWEA6Tnj1XvKrOj82Ys
                       http-date-0.0.6.1@http-date-0.0.6.1-GxuKyJS3TPnDu1ymqrm6RW
                       http-types-0.9.1@http-types-0.9.1-BTSIP6lzG5DE6u136Payws
                       http2-1.6.2@http2-1.6.2-7iyxxNi2iWDCArthWistHQ integer-gmp-1.0.0.1
@@ -49,19 +63,24 @@ package dependencies: aeson-0.11.2.1@aeson-0.11.2.1-ByXhYhAOjwT2lX0EEzDlEU
                       mime-types-0.1.0.7@mime-types-0.1.0.7-AnUYMmJkgUZLmjf93DTg5F
                       mmorph-1.0.9@mmorph-1.0.9-DmSwQqk5nLj7roLAcydGz
                       monad-control-1.0.1.0@monad-control-1.0.1.0-HoNEBoNfniX3vjSfkI7WTT
+                      mongoDB-2.1.1.1@mongoDB-2.1.1.1-62X1upBmPdG8ERkGdUofYh
                       mtl-2.2.1@mtl-2.2.1-6qsR1PHUy5lL47Hpoa4jCM
                       network-2.6.3.1@network-2.6.3.1-G4Up1CPKbp7DeFsnywOnGG
+                      nonce-1.0.2@nonce-1.0.2-8qgXFq4F678DmEjwZeu0tT
                       old-locale-1.0.0.7@old-locale-1.0.0.7-6glXNhHF891B41ZfuI8hU8
                       old-time-1.1.0.3@old-time-1.1.0.3-IcvdkJUsE9M8t3io8peAEp
+                      parsec-3.1.11@parsec-3.1.11-37j7M1YEHqtEooY7BpJdri
                       primitive-0.6.1.0@primitive-0.6.1.0-Ip44DqhfCp21tTUYbecwa
                       psqueues-0.2.2.3@psqueues-0.2.2.3-FfDllpzu6XJAWLRDPnMf0s
                       random-1.1@random-1.1-54KmMHXjttlERYcr1mvsAe
+                      random-shuffle-0.0.4@random-shuffle-0.0.4-LfeDYNPfwrQ2o9p6tw2M9l
                       regex-base-0.93.2@regex-base-0.93.2-71isvdwnRNrGKtKYo9rpQd
                       regex-compat-0.95.1@regex-compat-0.95.1-4nLo9klb6Pk7Tun1BAC3he
                       regex-posix-0.95.2@regex-posix-0.95.2-BbcuFE4RwTG3oQUmzAVjm
                       resourcet-1.1.8.1@resourcet-1.1.8.1-1XWaZ7RmVde330DM5PRI3Z
                       scientific-0.3.4.9@scientific-0.3.4.9-ENrtAw13zTS8y4klTK3l4D
                       scotty-0.11.0@scotty-0.11.0-IYgZL9vvPk2Jcr98uCm7GL
+                      securemem-0.1.9@securemem-0.1.9-AlUbMorzPNe4lwnV15ASIa
                       simple-sendfile-0.2.25@simple-sendfile-0.2.25-FZS0Stqtwd5AOyFRQgM4IV
                       stm-2.4.4.1@stm-2.4.4.1-4z2NRWnB0NIIUvSJsHW0kF
                       streaming-commons-0.1.16@streaming-commons-0.1.16-3F5ilGqdpiI2CBV4Mk7gyK
@@ -83,7 +102,8 @@ package dependencies: aeson-0.11.2.1@aeson-0.11.2.1-ByXhYhAOjwT2lX0EEzDlEU
                       wai-middleware-static-0.8.1@wai-middleware-static-0.8.1-18slCMpIGmVIS5lJoasFfN
                       warp-3.2.9@warp-3.2.9-51z5xDNQBTqJXlVD2waWc8
                       word8-0.1.2@word8-0.1.2-2E1SgvvAV2fK8vZPDHbRan
-orphans: aeson-0.11.2.1@aeson-0.11.2.1-ByXhYhAOjwT2lX0EEzDlEU:Data.Aeson.Types.Generic
+orphans: MonadRandom-0.4.2.3@MonadRandom-0.4.2.3-8TfCm6PGvGYB7omozORhov:Control.Monad.Random
+         aeson-0.11.2.1@aeson-0.11.2.1-ByXhYhAOjwT2lX0EEzDlEU:Data.Aeson.Types.Generic
          aeson-0.11.2.1@aeson-0.11.2.1-ByXhYhAOjwT2lX0EEzDlEU:Data.Aeson.Types.Instances
          attoparsec-0.13.1.0@attoparsec-0.13.1.0-2AyzLuPV4T95RcYDl03Ghe:Data.Attoparsec.ByteString.Char8
          attoparsec-0.13.1.0@attoparsec-0.13.1.0-2AyzLuPV4T95RcYDl03Ghe:Data.Attoparsec.Text.Internal
@@ -91,6 +111,7 @@ orphans: aeson-0.11.2.1@aeson-0.11.2.1-ByXhYhAOjwT2lX0EEzDlEU:Data.Aeson.Types.G
          binary-0.8.3.0@binary-0.8.3.0:Data.Binary.Generic
          bytestring-0.10.8.1@bytestring-0.10.8.1:Data.ByteString.Builder
          hashable-1.2.4.0@hashable-1.2.4.0-Ctl752zbguF6QanxurLOm2:Data.Hashable.Generic
+         mongoDB-2.1.1.1@mongoDB-2.1.1.1-62X1upBmPdG8ERkGdUofYh:Database.MongoDB.Internal.Util
          network-2.6.3.1@network-2.6.3.1-G4Up1CPKbp7DeFsnywOnGG:Network.Socket
          regex-base-0.93.2@regex-base-0.93.2-71isvdwnRNrGKtKYo9rpQd:Text.Regex.Base.Context
          regex-posix-0.95.2@regex-posix-0.95.2-BbcuFE4RwTG3oQUmzAVjm:Text.Regex.Posix.ByteString
@@ -147,8 +168,8 @@ import  -/  base-4.9.0.0:GHC.Base 8ed3be81c0707b322f975a84ae1bb816
 import  -/  base-4.9.0.0:Prelude b9bddb97799837fe67a8d00939a5b6c3
 import  -/  base-4.9.0.0:System.Environment ee0914a962f5508d0fd404c89ee4999b
 import  -/  ghc-prim-0.5.0.0:GHC.Types 7378e41b7749213c8c88ceb6b0665d4c
-import  -/  Controllers.Home e4471d3fc0f685f962af9546b956240d
-  exports: 713361d8d32561980ff6e17fb3f525f1
+import  -/  Controllers.Home 0fec56f23f5ba7858f35c0b309e742ba
+  exports: 064fc4dfdcf5856f28e2a19b7c3fda84
   home 724538e12855fec087d972f671c4627d
   login 3fb010cff60d1ff33fa11848a37aa95c
 import  -/  scotty-0.11.0@scotty-0.11.0-IYgZL9vvPk2Jcr98uCm7GL:Web.Scotty 0755cf02fd52d47c898ec2be40113eb4

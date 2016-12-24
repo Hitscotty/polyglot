@@ -1,7 +1,7 @@
 module Main where
 
 import           Control.Applicative                  ((<$>))
-import           Controllers.Home                     (home, login)
+import           Controllers.Home                     (home, login, polyglots)
 import           Network.Wai.Middleware.RequestLogger (logStdoutDev)
 import           Network.Wai.Middleware.Static        (addBase, noDots,
                                                        staticPolicy, (>->))
@@ -14,6 +14,6 @@ main = do
   scotty 3000 $ do
          middleware $ staticPolicy (noDots >-> addBase "static/images") -- for favicon.ico
          middleware logStdoutDev
-         home >> login
+         home >> login >> polyglots
 
 

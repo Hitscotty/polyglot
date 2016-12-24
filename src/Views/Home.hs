@@ -36,7 +36,11 @@ registerView = blaze $ do
                      register
                      bottom 
 
-
+polyglotView :: ActionM ()
+polyglotView = blaze $ do
+                     header
+                     navbar   
+                    
 header :: Html
 header =  docTypeHtml ! lang "en" $ do
     head $ do
@@ -63,18 +67,16 @@ header =  docTypeHtml ! lang "en" $ do
         --     <![endif]
        
 
-
 navbar :: Html
 navbar =
     body $ do
         div ! class_ "blog-masthead" $ div ! class_ "container" $ nav ! class_ "blog-nav" $ do
-            a ! class_ "blog-nav-item active" ! href "#" $ "Home"
-            a ! class_ "blog-nav-item" ! href "#" $ "New features"
-            a ! class_ "blog-nav-item" ! href "#" $ "Press"
-            a ! class_ "blog-nav-item" ! href "#" $ "New hires"
-            a ! class_ "blog-nav-item" ! href "#" $ "About"
+            a ! class_ "blog-nav-item" ! href "/" $ "Home"
+            a ! class_ "blog-nav-item" ! href "/stories" $ "Stories"
+            a ! class_ "blog-nav-item" ! href "/polyglots" $ "Polyglots"
+            a ! class_ "blog-nav-item" ! href "/resources" $ "Resources"
+            a ! class_ "blog-nav-item" ! href "/about" $ "About"
             login
-
 
 articles :: Html
 articles = do

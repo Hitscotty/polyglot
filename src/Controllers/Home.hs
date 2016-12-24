@@ -3,9 +3,10 @@
 
 module Controllers.Home (home
                         ,login
+                        ,polyglots
                         ) where 
 
-import Views.Home (homeView, registerView)
+import Views.Home (homeView, registerView, polyglotView)
 import Models.Barnes
 import Web.Scotty
 
@@ -16,5 +17,5 @@ login :: ScottyM ()
 login = do 
    get "/register" registerView
 
-books :: ScottyM ()
-   get "/books" $ html "html"
+polyglots :: ScottyM ()
+polyglots = get "/polyglots" polyglotView
