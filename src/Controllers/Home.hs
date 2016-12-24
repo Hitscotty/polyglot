@@ -16,3 +16,5 @@ login :: ScottyM ()
 login = do 
    get "/register" registerView
 
+books :: ScottyM ()
+   get "/books" $ html "html"
