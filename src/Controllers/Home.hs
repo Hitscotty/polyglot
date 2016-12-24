@@ -6,6 +6,7 @@ module Controllers.Home (home
                         ) where 
 
 import Views.Home (homeView, registerView)
+import Models.Barnes
 import Web.Scotty
 
 home :: ScottyM ()

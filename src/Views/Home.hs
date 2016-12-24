@@ -24,17 +24,21 @@ import           Web.Scotty                  (ActionM)
 
 homeView :: ActionM ()
 homeView = blaze $ do 
+                 header
                  navbar
                  articles
+                 bottom
 
 registerView :: ActionM ()
 registerView = blaze $ do 
+                     header
                      navbar
                      register
+                     bottom 
 
 
-navbar :: Html
-navbar =  docTypeHtml ! lang "en" $ do
+header :: Html
+header =  docTypeHtml ! lang "en" $ do
     head $ do
         meta ! charset "utf-8"
         meta ! httpEquiv "X-UA-Compatible" ! content "IE=edge"
@@ -57,9 +61,11 @@ navbar =  docTypeHtml ! lang "en" $ do
         --       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         --       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         --     <![endif]
-        
-articles :: Html
-articles =
+       
+
+
+navbar :: Html
+navbar =
     body $ do
         div ! class_ "blog-masthead" $ div ! class_ "container" $ nav ! class_ "blog-nav" $ do
             a ! class_ "blog-nav-item active" ! href "#" $ "Home"
@@ -68,14 +74,28 @@ articles =
             a ! class_ "blog-nav-item" ! href "#" $ "New hires"
             a ! class_ "blog-nav-item" ! href "#" $ "About"
             login
+
+
+articles :: Html
+articles = do
         div ! class_ "container" $ do
             div ! class_ "blog-header" $ do
-                h1 ! class_ "blog-title" $ "The Bootstrap Blog"
-                p ! class_ "lead blog-description" $ "The official example template of creating a blog with Bootstrap."
+                h1 ! class_ "blog-title" $ "Polyglot"
+                p ! class_ "lead blog-description" $ "'Every man that I meet is my superior in someway,In that, I learn of him.'  - Emerson"
             div ! class_ "row" $ do
+                blog
+
+
+blog :: Html
+blog = do  
                 div ! class_ "col-sm-8 blog-main" $ do
+                    blogPost "jack"
+                    
+
+blogPost :: Html -> Html
+blogPost title = do
                     div ! class_ "blog-post" $ do
-                        h2 ! class_ "blog-post-title" $ "Sample blog post"
+                        h2 ! class_ "blog-post-title" $ title
                         p ! class_ "blog-post-meta" $ do
                             "January 1, 2014 by"
                             a ! href "#" $ "Mark"
@@ -112,6 +132,9 @@ articles =
                             li "Maecenas sed diam eget risus varius blandit sit amet non magna."
                         p "Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis."
                     --  /.blog-post 
+
+lorem :: Html
+lorem = do 
                     div ! class_ "blog-post" $ do
                         h2 ! class_ "blog-post-title" $ "Another blog post"
                         p ! class_ "blog-post-meta" $ do
@@ -151,6 +174,9 @@ articles =
                         li $ a ! href "#" $ "Previous"
                         li $ a ! href "#" $ "Next"
                 --  /.blog-main 
+
+sidebar :: Html
+sidebar = 
                 div ! class_ "col-sm-3 col-sm-offset-1 blog-sidebar" $ do
                     div ! class_ "sidebar-module sidebar-module-inset" $ do
                         h4 "About"
@@ -182,6 +208,9 @@ articles =
                 --  /.blog-sidebar 
             --  /.row 
         --  /.container 
+        
+bottom :: Html
+bottom = do 
         footer ! class_ "blog-footer" $ do
             p $ do
                 "Blog template built for"
